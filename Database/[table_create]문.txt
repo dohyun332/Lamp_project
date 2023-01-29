@@ -1,0 +1,88 @@
+CREATE TABLE `user` (
+  `u_idx` int NOT NULL AUTO_INCREMENT,
+  `u_img` varchar(255) NOT NULL,
+  `u_id` varchar(255) NOT NULL,
+  `u_pw` varchar(255) NOT NULL,
+  `u_name` varchar(255) NOT NULL,
+  `u_cell` varchar(255) NOT NULL,
+  `u_email` varchar(255) NOT NULL,
+  `u_gender` int NOT NULL,
+  `u_birthday` varchar(255) NOT NULL,
+  `u_joindate` varchar(255) NOT NULL,
+  `u_lastlogin` varchar(255) NOT NULL,
+  PRIMARY KEY (`u_idx`),
+  UNIQUE KEY `u_id_UNIQUE` (`u_id`),
+  UNIQUE KEY `u_email_UNIQUE` (`u_email`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `music` (
+  `m_no` int NOT NULL AUTO_INCREMENT,
+  `m_title` varchar(255) NOT NULL,
+  `m_rank` int NOT NULL,
+  `m_music` varchar(255) NOT NULL,
+  `m_musician` varchar(255) NOT NULL,
+  `m_album` varchar(255) NOT NULL,
+  `m_albumimg` varchar(255) NOT NULL,
+  `m_year` int NOT NULL,
+  `m_category` int NOT NULL,
+  PRIMARY KEY (`m_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `music_bookmark` (
+  `mb_no` int NOT NULL AUTO_INCREMENT,
+  `u_id` varchar(255) NOT NULL,
+  `m_no` int NOT NULL,
+  PRIMARY KEY (`mb_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `music_likes` (
+  `l_no` int NOT NULL AUTO_INCREMENT,
+  `u_id` varchar(255) NOT NULL,
+  `m_no` int NOT NULL,
+  PRIMARY KEY (`l_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `today_music` (
+  `t_no` int NOT NULL AUTO_INCREMENT,
+  `t_youtubelink` varchar(255) NOT NULL,
+  `m_no` int NOT NULL,
+  PRIMARY KEY (`t_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `editor_choice` (
+  `e_no` int NOT NULL AUTO_INCREMENT,
+  `e_theme` varchar(255) NOT NULL,
+  `e_editor` varchar(255) NOT NULL,
+  PRIMARY KEY (`e_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `editor_choice_list` (
+  `el_no` int NOT NULL AUTO_INCREMENT,
+  `e_no` int NOT NULL,
+  `m_no` int NOT NULL,
+  PRIMARY KEY (`el_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `community` (
+  `c_no` int NOT NULL AUTO_INCREMENT,
+  `c_writer` varchar(255) NOT NULL,
+  `c_title` varchar(255) NOT NULL,
+  `c_content` varchar(10000) NOT NULL,
+  `c_created` varchar(255) NOT NULL,
+  `c_modified` varchar(255) NOT NULL,
+  `c_hits` int unsigned NOT NULL,
+  `c_music` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`c_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `community_comment` (
+  `cc_no` int NOT NULL AUTO_INCREMENT,
+  `cc_writer` varchar(255) NOT NULL,
+  `c_no` int NOT NULL,
+  `cc_content` varchar(1000) NOT NULL,
+  `cc_created` varchar(255) NOT NULL,
+  `cc_modified` varchar(255) NOT NULL,
+  `cc_comment` int NOT NULL,
+  PRIMARY KEY (`cc_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
