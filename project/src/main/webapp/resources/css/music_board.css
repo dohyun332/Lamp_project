@@ -1,0 +1,90 @@
+/* 음악소통 게시판*/
+.maintitle {
+    margin: 20px 0 10px 0;
+}
+
+/* 뮤직차트 메인 css */
+.music_board_wrap {
+    margin-top: 25px;
+}
+.board_searchBox {
+    height: 35px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 10px;
+}
+#board_search_word {
+    width: 200px;
+    height: 30px;
+    font-size: 14px;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+}
+.searchtxt_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.searchtxt_box > img {
+    width: 20px;
+    cursor: pointer;
+}
+.music_board_main {
+    width: 100%;
+    border-collapse: collapse;
+}
+.music_board_main_head {    
+    height: 50px;
+
+    border-bottom: 2px solid gainsboro;
+    border-top: 2px solid gainsboro;
+    background-color: #F4F3F3;
+}
+.music_board_main_body {
+    height: 60px;
+    font-size: 15px;
+    border-bottom: 1px solid gainsboro;
+}
+.board_writer,
+.board_created,
+.board_hits {
+    text-align: center;
+}
+.boardBtn {
+    display: flex;
+    justify-content: right;
+}
+.board_writeBtn {
+    margin-top: 20px;
+    width: 80px;
+    height: 35px;
+    padding: 0;
+    border: 1px solid;
+    box-sizing: border-box;
+    background-color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.board_writeBtn a {
+    line-height: 35px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+/* 페이지네이션 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 15px;
+}
+.current_page {
+    text-decoration: underline;
+    font-weight: 700;
+}

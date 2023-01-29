@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="communityMapper">
+
+<!-- 게시물 총갯수 -->
+    <select id="boardTotalCount" resultType="Integer">
+        select count(*) from community
+    </select>
+<!-- 게시물 10개 가져오기 -->
+    <select id="selectBoardList" parameterType="Map" resultType="CommunityDto">
+        select * from community order by c_created desc limit #{startNo}, #{getSize}
+    </select>
+
+<!-- 게시물 읽기 -->
+    <select id="selectBoardOne" parameterType="int" resultType="CommunityDto">
+        select * from community where c_no=#{boardNo}
+    </select>
+<!-- 조회수 증가 -->
+    <update id="updateHits" parameterType="int">
+        update community set c_hits=c_hits+1 where c_no=#{boardNo}
+    </update>
+
+<!--  게시글 쓰기  -->
+    <insert id="insertBoard" parameterType="CommunityDto">
+        insert into community(c_writer, c_title, c_content, c_created, c_modified, c_hits, c_music) values(#{c_writer}, #{c_title}, #{c_content}, #{c_created}, #{c_modified}, 0, #{c_music})
+    </insert>
+
+<!-- 게시글 삭제 -->
+    <delete id="deleteBoard" parameterType="int">
+        delete from community where c_no=#{c_no}
+    </delete>
+
+<!-- 게시글 수정 -->
+    <update id="updateBoard" parameterType="CommunityDto">
+        update community set c_title=#{c_title}, c_content=#{c_content}, c_modified=#{c_modified}, c_music=#{c_music} where c_no=#{c_no}
+    </update>
+
+<!-- 게시글 검색 10개 가져오기  -->
+    <select id="searchBoardList" parameterType="Map" resultType="CommunityDto">
+        select * from community where ${search_category} like concat("%", #{search_word}, "%") order by c_created desc limit #{startNo}, #{getSize}
+    </select>
+<!-- 게시글 갯수 가져오기  -->
+    <select id="searchTotalCount" parameterType="Map" resultType="int">
+        select count(*) from community where ${search_category} like concat("%", #{search_word}, "%") order by c_created desc
+    </select>
+
+</mapper>

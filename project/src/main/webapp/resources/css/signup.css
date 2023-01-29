@@ -1,0 +1,180 @@
+input[type="text"],
+input[type="password"] {
+    border: none;
+}
+/* 메인 */
+#main {
+    margin-top: 60px;
+}
+/* 회원가입 박스 */
+.signUp_title {
+    margin: 10px 0 10px 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+.signUp_box {
+    width: 60%;
+    height: 1050px;
+    margin: 30px auto;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+    position: relative;
+}
+.signUp_wrap {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.signUp_subtitle {
+    color: #969696;
+    margin: 15px 0 5px 0;
+    font-weight: 700;
+}
+/* 전체 input태그 css */
+.input_item {
+    width: 100%;
+    height: 40px;
+    font-size: 15px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+.input_item::placeholder {
+    color: gainsboro;
+    font-size: 15px;
+}
+/* 경고 메세지 */
+.alertmsg {
+    color: #969696;
+    font-size: 11px;
+}
+.alertmsg_red {
+    text-align: center;
+    color: rgb(233, 87, 87);
+    font-size: 14px;
+}
+/* 아이디 */
+.id_box {
+    display: flex;
+    justify-content: space-between;
+}
+.input_id {
+    width: 70%;
+}
+.duplicate_chk {
+    width: 25%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    background-color: #0095FF;
+    cursor: pointer;
+}
+/* 비밀번호 */
+#u_pw1 {
+    margin-bottom: 10px;
+}
+
+/* 생년월일 */
+.birth_box {
+    display: flex;
+    justify-content: space-between;
+}
+#u_birthday {
+    width: 50%;
+}
+#u_gender {
+    width: 15%;
+}
+.subtxt {
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: 700;
+}
+/* 이메일 */
+#u_email {
+    margin-bottom: 10px;
+}
+.domain_wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.domain_box {
+    width: 60%;
+    font-size: 0;
+    position: relative;
+}
+.domain {
+    width: 80%;
+    margin-bottom: 0;
+    border-radius: 10px 0 0 10px;
+}
+.domain_select {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1f1f1;
+    padding: 2px 15px;
+    box-sizing: border-box;
+    font-size: 15px;
+    cursor: pointer;
+    outline: none;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.domain_select::-ms-expand {
+    display: none;
+}
+.email_arrow {
+    position: absolute;
+    top: 50%;
+    right: 6%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    pointer-events: none;
+}
+/* 프로필 */
+.profile_subtitle {
+    margin-bottom: 0;
+}
+.alertmsg_profile {
+    margin-bottom: 10px;
+}
+.profile_box {
+    display: flex;
+    justify-content: space-between;
+}
+#profile_img {
+    width: 100px;
+    height: 100px;
+    display: none;
+}
+/* 약관동의 */
+.agreement_box {
+    margin-top: 20px;
+}
+.agreement_box label {
+    display: block;
+}
+.signUp_btn {
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    background-color: #0095FF;
+    margin-top: 15px;
+
+    cursor: pointer;
+}

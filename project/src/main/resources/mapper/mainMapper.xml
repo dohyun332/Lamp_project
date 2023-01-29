@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mainMapper">
+
+<!-- 검색미리보기 불러오기(제목, 가수, 앨범) -->
+    <select id="search_lookahead_title" parameterType="String" resultType="MusicDto">
+        select * from music where m_music like concat("%", #{search_word}, "%") order by m_year desc limit 3
+    </select>
+
+    <select id="search_lookahead_musician" parameterType="String" resultType="MusicDto">
+        select * from music where m_musician like concat("%", #{search_word}, "%") order by m_year desc limit 3
+    </select>
+
+    <select id="search_lookahead_album" parameterType="String" resultType="MusicDto">
+        select * from music where m_album like concat("%", #{search_word}, "%") order by m_year desc limit 3
+    </select>
+
+<!-- 프로필이미지 경로 불러오기 -->
+    <select id="profile_img" parameterType="String" resultType="String" >
+        select u_img from user where u_id=#{u_id}
+    </select>
+
+<!-- 오늘의 음악 -->
+    <select id="todayMusic" parameterType="int" resultType="TodayMusicDto" >
+        select today_music.t_no, today_music.t_youtubelink, music.*
+        from today_music
+        left join music
+        on today_music.m_no = music.m_no where today_music.t_no = #{t_no}
+    </select>
+
+<!-- 년도별 뮤직차트(랜덤년도별 10위)  -->
+<select id="year_music_chart" parameterType="int" resultType="MusicDto">
+    select * from music where m_year=#{year} and m_category=0 order by m_rank limit 10
+</select>
+<!--  년도별 뮤직차트 즐겨찾기, 좋아요 버튼 초기화 -->
+    <select id="yearBookmarkLikesBtn" parameterType="Map" resultType="MusicDto">
+        select m2.*, ml.l_no, ml.u_id
+        from (select m1.*, mb.mb_no
+            from (select * from music where m_year=#{year} and m_category=0 order by m_rank limit 10) as m1
+            left join (select * from music_bookmark where u_id=#{id}) as mb
+            on m1.m_no = mb.m_no) as m2
+        left join (select * from music_likes where u_id=#{id}) as ml
+        on m2.m_no = ml.m_no
+    </select>
+
+<!-- 에디터 추천  -->
+    <select id="editor_choice" resultType="EditorChoiceDto">
+        select * from editor_choice
+    </select>
+
+    <select id="editor_choice_totalCnt" parameterType="int" resultType="int">
+        select count(*) from (select ecl.el_no, ecl.m_no, ec.*
+                            from editor_choice_list as ecl
+                            join editor_choice as ec
+                            on ecl.e_no = ec.e_no where ec.e_no=#{no}) as ec2
+    </select>
+
+    <select id="editor_choice_main" parameterType="int" resultType="MusicDto">
+        select ec2.el_no, ec2.e_no, ec2.e_theme, ec2.e_editor, music.*
+        from (select ecl.el_no, ecl.m_no, ec.*
+                from editor_choice_list as ecl
+                join editor_choice as ec
+                on ecl.e_no = ec.e_no) as ec2
+        join music
+        on ec2.m_no = music.m_no where e_no=#{no} limit 3
+    </select>
+</mapper>

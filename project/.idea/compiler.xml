@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="app" />
+        <module name="xxmx_v10" />
+        <module name="xxmx_v11" />
+        <module name="xxmx_v12" />
+        <module name="xxmx_v13" />
+        <module name="xxmx_v14" />
+        <module name="xxmx_v15" />
+        <module name="xxmx_v16" />
+        <module name="xxmx_v17" />
+        <module name="project" />
+        <module name="2301151611_project" />
+        <module name="2211282134 board" />
+        <module name="xxmx" />
+        <module name="2301150215_project" />
+        <module name="mix_2212052048_xxmx" />
+        <module name="xxmx_v7" />
+        <module name="board" />
+        <module name="xxmx_v9" />
+        <module name="xxmx_v8" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="2211282134 board" options="-Xlint:all" />
+      <module name="2301150215_project" options="-Xlint:all" />
+      <module name="2301151611_project" options="-Xlint:all" />
+      <module name="app" options="-Xlint:all" />
+      <module name="board" options="-Xlint:all" />
+      <module name="mix_2212052048_xxmx" options="-Xlint:all" />
+      <module name="project" options="-Xlint:all" />
+      <module name="xxmx" options="-Xlint:all" />
+      <module name="xxmx_v10" options="-Xlint:all" />
+      <module name="xxmx_v11" options="-Xlint:all" />
+      <module name="xxmx_v12" options="-Xlint:all" />
+      <module name="xxmx_v13" options="-Xlint:all" />
+      <module name="xxmx_v14" options="-Xlint:all" />
+      <module name="xxmx_v15" options="-Xlint:all" />
+      <module name="xxmx_v16" options="-Xlint:all" />
+      <module name="xxmx_v17" options="-Xlint:all" />
+      <module name="xxmx_v7" options="-Xlint:all" />
+      <module name="xxmx_v8" options="-Xlint:all" />
+      <module name="xxmx_v9" options="-Xlint:all" />
+    </option>
+  </component>
+</project>

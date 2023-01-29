@@ -1,0 +1,284 @@
+#header {
+    border-bottom: 1px solid gainsboro;
+    box-sizing: border-box;
+}
+/* 탑배너 */
+.top_banner {
+    text-align: center;
+    height: 40px;
+    background-color: #0095FF;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+.top_banner_txt {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 100%;
+}
+
+/* 네비메뉴 */
+
+    /* 로고 & 검색 */
+#nav_wrap {
+    margin-top: 50px;
+}
+.search_wrap {
+    display: flex;
+    gap: 30px;
+}
+.logo > a {
+    display: block;
+}
+.search_box {
+    width: 45%;
+    display: flex;
+    position: relative;
+}
+.search_box > input {
+    width: 88%;
+    font-size: 16px;
+    border: none;
+    border-bottom: 3px solid #0095FF;
+    box-sizing: border-box;
+}
+.magnifier {
+    width: 12%;
+    background: url(../img/magnifier.png) no-repeat center;
+    border-bottom: 3px solid #0095FF;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.magnifier > a {
+    display: block;
+    height: 100%;
+}
+.search_lookahead {
+    width: 100%;
+    border: 1px solid gainsboro;
+    background-color: white;
+    box-sizing: border-box;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    font-size: 14px;
+    display: none;
+}
+.search_lookahead_title {
+    border-bottom: 1px solid gainsboro;
+}
+.search_lookahead_info { 
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border-bottom: 1px solid gainsboro;
+    cursor: pointer;
+}
+.search_lookahead_info > img {
+    width: 49px;
+    height: 49px;
+}
+.search_lookahead_album,
+.search_lookahead_music,
+.search_lookahead_musician {
+    pointer-events: none;
+}
+.search_lookahead_none {
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-bottom: 1px solid gainsboro;
+}
+.line {
+    width: 0.5px;
+    height: 35px;
+    border-right: 1px solid gainsboro;
+}
+.search_lookahead_closebox {
+    height: 21px;
+    position: relative;
+}
+.search_lookahead_close {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+
+    /* 네비메뉴 */
+.nav_menu {
+    margin: 40px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.nav_menu1 {
+    display: flex;
+    gap: 50px;
+}
+.signin_up {
+    padding: 0 20px 0 0;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.signin_up_txt {
+    cursor: pointer;
+}
+.sign_arrow {
+    width: 10px;
+    height: 6px;
+    background: url(../img/btn_content.png) no-repeat -15px -19px;
+    cursor: pointer;
+}
+.signin_up_box {
+    width: 250px;
+    height: 100px;
+    padding: 15px 15px 10px;
+    box-sizing: border-box;
+    border: 1px solid gainsboro;
+    background-color: white;
+    position: absolute;
+    top: 34px;
+    right: 0;
+    z-index: 99;
+    display: none;
+}
+.signin {
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    background-color: #0095FF;
+}
+.signin > a {
+    display: block;
+}
+.signup {
+    height: 15px;
+    line-height: 15px;
+    margin-top: 5px;
+    text-align: right;
+    font-size: 13px;
+}
+.signout_box {
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+    background-color: white;
+    position: absolute;
+    top: 45px;
+    left: 20%;
+    z-index: 99;
+    display: none;
+}
+.profile_img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/* 푸터 */
+#footer {
+    margin-top: 100px;
+}
+#top_footer {
+    border-top: 1px solid gainsboro;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+.footer_notice1 {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.notice_box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.notice_title {
+    font-weight: 700;
+}
+.notice_txt_box {
+    width: 250px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.notice_txt {
+    line-height: 24px;
+    width: 100%;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.notice_arrow_box {
+    box-sizing: border-box;
+    position: relative;
+    font-size: 0px;
+}
+.notice_arrow1 {
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    border: 1px solid;
+    box-sizing: border-box;
+    background: url(../img/footer_content.png) no-repeat 0 -40px;
+    cursor: pointer;
+}
+.notice_arrow2 {
+    width: 21px;
+    height: 21px;
+    display: inline-block;
+    border: 1px solid;
+    box-sizing: border-box;
+    background: url(../img/footer_content.png) no-repeat -20px -40px;
+    cursor: pointer;
+}
+.service_box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+#bot_footer {
+    border-top: 1px solid gray;
+    box-sizing: border-box;
+}
+.company_menu1 {
+    margin-top: 30px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.company_menu2 {
+    margin-top: 30px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+.company_info > div {
+    margin-bottom: 8px;
+}
+
+
