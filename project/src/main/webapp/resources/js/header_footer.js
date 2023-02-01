@@ -196,11 +196,16 @@ $(document).ready(function() {
     })
     let notice_slide_index = 0;
     let notice_slide_length = $(".notice_txt").length;
-    
+
     $(".notice_arrow1").click(function() {
         $(".notice_arrow1, .notice_arrow2").css({
             pointerEvents: "none"
         })
+        setTimeout(function() {
+            $(".notice_arrow1, .notice_arrow2").css({
+                pointerEvents: "auto"
+            })
+        }, 1000)
         $(".notice_txt").eq(notice_slide_index%notice_slide_length).animate({
             left: "-100%",
             opacity: "0"
@@ -211,19 +216,20 @@ $(document).ready(function() {
         }).animate({
             left: "0",
             opacity: "1"
-        }, 1000)
+        }, 600)
         notice_slide_index+=1;
-        setTimeout(function() {
-            $(".notice_arrow1, .notice_arrow2").css({
-                pointerEvents: "auto"
-            })
-        }, 1000)
+
     });
 
     $(".notice_arrow2").click(function() {
         $(".notice_arrow1, .notice_arrow2").css({
             pointerEvents: "none"
         })
+        setTimeout(function() {
+            $(".notice_arrow1, .notice_arrow2").css({
+                pointerEvents: "auto"
+            })
+        }, 1000)
         $(".notice_txt").eq(notice_slide_index%notice_slide_length).animate({
             left: "100%",
             opacity: "0"
@@ -234,12 +240,7 @@ $(document).ready(function() {
         }).animate({
             left: "0",
             opacity: "1"
-        }, 1000)
+        }, 600)
         notice_slide_index-=1;
-        setTimeout(function() {
-            $(".notice_arrow1, .notice_arrow2").css({
-                pointerEvents: "auto"
-            })
-        }, 1000)
     });
 })

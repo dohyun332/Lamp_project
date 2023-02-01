@@ -17,8 +17,6 @@
     <link rel="icon" href="/img/favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/common.css">
-
-    <link rel="stylesheet" href="/css/header_footer.css">
     <link rel="stylesheet" href="/css/main.css">
 
     <script src="/js/1.12.4.js"></script>
