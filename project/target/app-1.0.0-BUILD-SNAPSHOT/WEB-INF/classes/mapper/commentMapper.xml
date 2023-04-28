@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="commentMapper">
+
+<!-- 댓글 모두 불러오기 -->
+    <select id="selectCommentAll" parameterType="int" resultType="CommentDto">
+        select * from community_comment where c_no=#{boardNo} order by cc_comment, cc_created
+    </select>
+
+
+<!-- 댓글 작성하기  -->
+    <insert id="insertComment" parameterType="CommentDto">
+        <selectKey resultType="int" keyProperty="cc_no" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+
+        insert into community_comment(cc_writer, c_no, cc_content, cc_created, cc_modified, cc_comment)
+        values(#{cc_writer}, #{c_no}, #{cc_content}, #{cc_created}, #{cc_modified}, 0);
+    </insert>
+<!-- 댓글 작성 후 원 댓글번호 업데이트해주기 -->
+    <update id="updateCc_comment" parameterType="commentDto">
+        update community_comment set cc_comment=#{cc_no} where cc_no=#{cc_no}
+    </update>
+
+<!-- 대댓글 작성하기 -->
+    <insert id="insertCcomment" parameterType="CommentDto">
+        insert into community_comment(cc_writer, c_no, cc_content, cc_created, cc_modified, cc_comment)
+        values(#{cc_writer}, #{c_no}, #{cc_content}, #{cc_created}, #{cc_modified}, #{cc_comment});
+    </insert>
+<!-- 댓글 삭제하기 -->
+    <delete id="deleteComment" parameterType="int">
+        delete from community_comment where cc_no=#{cc_no}
+    </delete>
+<!--  대댓글 보유 여부 확인, 대댓글이 존재할 경우 댓글 삭제불가  -->
+    <select id="checkCcomment" parameterType="int" resultType="int">
+        select count(*) from community_comment where cc_comment=#{cc_no}
+    </select>
+<!-- 댓글 수정하기 -->
+    <update id="updateComment" parameterType="CommentDto">
+        update community_comment set cc_content=#{cc_content}, cc_modified=#{cc_modified} where cc_no=#{cc_no}
+    </update>
+<!-- 댓글하나 가져오기 -->
+    <select id="selectCommentOne" parameterType="int" resultType="CommentDto">
+        select * from community_comment where cc_no=#{cc_no}
+    </select>
+
+
+</mapper>

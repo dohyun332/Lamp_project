@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <!-- 여기는 별칭 정하는곳  boardMapper 에 resultType="BoardDto" 임  -->
+        <typeAlias alias="TodayMusicDto" type="com.lamp.app.domain.TodayMusicDto"/>
+        <typeAlias alias="UserDto" type="com.lamp.app.domain.UserDto"/>
+        <typeAlias alias="MusicDto" type="com.lamp.app.domain.MusicDto"/>
+        <typeAlias alias="EditorChoiceDto" type="com.lamp.app.domain.EditorChoiceDto"/>
+        <typeAlias alias="CommunityDto" type="com.lamp.app.domain.CommunityDto"/>
+        <typeAlias alias="CommentDto" type="com.lamp.app.domain.CommentDto"/>
+
+
+
+    </typeAliases>
+</configuration>

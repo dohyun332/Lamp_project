@@ -1,0 +1,206 @@
+/* 시대별 차트 title */
+.maintitle {
+    margin: 20px 0 10px 0;
+}
+.music_chart_title {
+    text-align: center;
+    position: relative;
+}
+.nation_box {
+    width: 12%;
+    height: 35px;
+    line-height: 35px;
+    border: 1px solid #969696;
+    box-sizing: border-box;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.internal {
+    width: 50%;
+    background-color: #efefef;
+}
+.external {
+    width: 50%;
+    background-color: #efefef;
+}
+.nation_sel {
+    background-color: gray;
+    color: white;
+}
+.nation_box a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.calendar_box {
+    position: absolute;
+    top: 55%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    font-size: 0;
+}
+.calendar {
+    cursor: pointer;
+}
+.year_popup {
+    width: 320px;
+    height: 120px;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 13px;
+    background-color: white;
+
+    position: absolute;
+    top: 160%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: none;
+}
+.year_popup_close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    cursor: pointer;
+}
+.year_popup_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 8px;
+}
+.prev_arrow {
+    width: 14px;
+    height: 14px;
+    background: url(../img/music_chart/year_arrow.gif) no-repeat 0 1px;
+    display: inline-block;
+    cursor: pointer;
+}
+.next_arrow {
+    width: 14px;
+    height: 14px;
+    background: url(../img/music_chart/year_arrow.gif) no-repeat -14px 1px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.year_tb {
+    border-collapse: collapse;
+    border-color: gainsboro;
+    background-color: white;
+}
+.year_tb tr {
+    height: 35px;
+}
+
+.year_list > a {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+}
+.year_selected {
+    background-color: #6bced4;
+    color: white;
+}
+.year_blocked {
+    color: gainsboro;
+    pointer-events: none;
+}
+
+/* 뮤직차트 메인 css */
+.music_chart_main {
+    margin-top: 40px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.music_chart_main_head {
+    border-bottom: 3px solid gray;
+    line-height: 40px;
+}
+.music_chart_main_row {
+    border-bottom: 1px solid gainsboro;
+}
+.music_info_td {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+.album_img {
+    width: 60px;
+    height: 60px;
+    margin: 3px 20px 3px 0;
+}
+.music_info {
+    padding: 9px 0;
+}
+.title_box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.album_box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #969696;
+}
+.musician {
+    position: relative;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
+.line {
+    width: 1px;
+    height: 70%;
+    border-right: 2px solid #e0e0e0;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.music_chart_icon {
+    text-align: center;
+}
+.music_chart_icon > img {
+    cursor: pointer;
+}
+
+/* 하단 1위~50위 51~100위 이동버튼 */
+.rank50Box {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.rank50Btn {
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.rank50Btn > a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.rank50Btn_sel {
+    color: #0095FF;
+    border: 1px solid #0095FF;
+}

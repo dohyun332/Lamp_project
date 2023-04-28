@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="musicMapper">
+
+<!-- 음악검색 -->
+    <select id="musicSearch" parameterType="Map" resultType="MusicDto">
+        select ms.*, mlt.l_totalCnt
+        from (select * from music where m_category=#{category} and ${search_cate} like concat("%", #{search_word}, "%") order by m_year desc) as ms
+        left join (select count(*) as l_totalCnt, m_no from music_likes group by m_no) as mlt
+        on ms.m_no=mlt.m_no
+    </select>
+    <!-- 음악검색 즐겨찾기 좋아요 좋아요 수 초기화 -->
+    <select id="msBookmarkLikesBtn" parameterType="Map" resultType="MusicDto">
+        select ms3.*, mlt.l_totalCnt
+        from (select ms2.*, ml.l_no
+                from (select ms.*, mb.mb_no
+                        from (select * from music where m_category=#{category} and ${search_cate} like concat("%", #{search_word}, "%") order by m_year desc) as ms
+                        left join (select * from music_bookmark where u_id=#{id}) as mb
+                        on ms.m_no = mb.m_no) as ms2
+                left join (select * from music_likes where u_id=#{id}) as ml
+                on ms2.m_no=ml.m_no) as ms3
+        left join (select count(*) as l_totalCnt, m_no from music_likes group by m_no) as mlt
+        on ms3.m_no=mlt.m_no
+    </select>
+
+<!--  음악차트  -->
+    <!-- 음악차트 비로그인 시 -->
+    <select id="musicChart" parameterType="Map" resultType="MusicDto">
+        select mc.*, mlt.l_totalCnt
+        from (select * from music where m_year=#{year} and m_category=#{category} limit #{rank}, 50) as mc
+        left join (select count(*) as l_totalCnt, m_no from music_likes group by m_no) as mlt
+        on mc.m_no=mlt.m_no
+    </select>
+    <!-- 음악차트 로그인 시 -->
+    <select id="musicChartSignin" parameterType="Map" resultType="MusicDto">
+        select mc3.*, ml.l_no
+        from (select mc2.*, mb.mb_no
+                from (select mc.*, mlt.l_totalCnt
+                        from (select * from music where m_year=#{year} and m_category=#{category} limit #{rank}, 50) as mc
+                        left join (select count(*) as l_totalCnt, m_no from music_likes group by m_no) as mlt
+                        on mc.m_no=mlt.m_no) as mc2
+                left join (select * from music_bookmark where u_id=#{id}) as mb
+                on mc2.m_no=mb.m_no) as mc3
+        left join (select * from music_likes where u_id=#{id}) as ml
+        on mc3.m_no=ml.m_no
+    </select>
+
+    <!--  즐겨찾기 -->
+    <!--  즐겨찾기 추가되있는지 확인  -->
+    <select id="bookmarkSelectOne" parameterType="Map" resultType="int">
+        select count(*) from music_bookmark where u_id=#{id} and m_no=#{bookmarkNo}
+    </select>
+    <!--  즐겨찾기 추가되어 있으면 삭제  -->
+    <delete id="bookmarkDeleteOne" parameterType="Map">
+        delete from music_bookmark where u_id=#{id} and m_no=#{bookmarkNo}
+    </delete>
+    <!--  즐겨찾기 추가안되어 있으면 추가  -->
+    <insert id="bookmarkInsertOne" parameterType="Map">
+        insert into music_bookmark(u_id, m_no) values(#{id}, #{bookmarkNo})
+    </insert>
+    <!--  아이디에 해당하는 즐겨찾기 목록가져오기 -->
+    <select id="bookmarkUserSelect" parameterType="Map" resultType="MusicDto">
+        select mb3.*, mlt.l_totalCnt
+        from (select mb2.*, ml.l_no
+        from (select mb.mb_no, mb.u_id, music.*
+        from (select * from music_bookmark where u_id=#{id}) as mb
+        join music
+        on mb.m_no = music.m_no where m_category=#{category}) as mb2
+        left join (select * from music_likes where u_id=#{id}) as ml
+        on mb2.m_no=ml.m_no) as mb3
+        left join (select count(*) as l_totalCnt, m_no from music_likes where u_id=#{id} group by m_no) as mlt
+        on mb3.m_no = mlt.m_no
+    </select>
+
+    <!--  좋아요 -->
+    <!--  좋아요 추가되있는지 확인  -->
+    <select id="likesSelectOne" parameterType="Map" resultType="int">
+        select count(*) from music_likes where u_id=#{id} and m_no=#{likesNo}
+    </select>
+    <!--  좋아요 추가되어 있으면 삭제  -->
+    <delete id="likesDeleteOne" parameterType="Map">
+        delete from music_likes where u_id=#{id} and m_no=#{likesNo}
+    </delete>
+    <!--  좋아요 추가안되어 있으면 추가  -->
+    <insert id="likesInsertOne" parameterType="Map">
+        insert into music_likes(u_id, m_no) values(#{id}, #{likesNo})
+    </insert>
+    <!--  음악별 좋아요 총 갯수  -->
+    <select id="likesCnt" parameterType="int" resultType="int">
+        select count(*) from music_likes where m_no=#{likesNo}
+    </select>
+
+<!--  에디터 초이스 목록  -->
+    <!--  에디터 초이스 제목  -->
+    <select id="editor_choice_info" parameterType="int" resultType="EditorChoiceDto">
+        select * from editor_choice where e_no=#{no}
+    </select>
+    <!--  에디터 초이스 리스트  -->
+    <select id="editor_choice_list" parameterType="int" resultType="MusicDto">
+        select ec3.*, mlt.l_totalCnt
+        from (select ec2.el_no, ec2.e_no, ec2.e_theme, ec2.e_editor, music.*
+                from (select ecl.el_no, ecl.m_no, ec.*
+                        from editor_choice_list as ecl
+                        join editor_choice as ec
+                        on ecl.e_no = ec.e_no) as ec2
+                join music
+                on ec2.m_no = music.m_no where e_no=#{no}) as ec3
+        left join (select count(*) as l_totalCnt, m_no from music_likes group by m_no) as mlt
+        on ec3.m_no=mlt.m_no
+    </select>
+    <!--  에디터 초이스 리스트 즐겨찾기, 좋아요, 좋아요 수 초기화 -->
+    <select id="eclBookmarkLikesBtn" parameterType="Map" resultType="MusicDto">
+        select ecl4.*, mlt.l_totalCnt
+        from (select ecl3.*, ml.l_no
+                from (select ecl2.*, mb.mb_no
+                        from (select ec2.el_no, ec2.e_no, ec2.e_theme, ec2.e_editor, music.*
+                                from (select ecl.el_no, ecl.m_no, ec.*
+                                        from editor_choice_list as ecl
+                                        join editor_choice as ec
+                                        on ecl.e_no = ec.e_no) as ec2
+                                join music
+                                on ec2.m_no = music.m_no where e_no=#{no}) as ecl2
+                        left join (select * from music_bookmark where u_id=#{id}) as mb
+                        on ecl2.m_no = mb.m_no) as ecl3
+                left join (select * from music_likes where u_id=#{id}) as ml
+                on ecl3.m_no = ml.m_no) as ecl4
+        left join (select count(*) as l_totalCnt, m_no from music_likes group by m_no) as mlt
+        on ecl4.m_no = mlt.m_no
+    </select>
+
+</mapper>

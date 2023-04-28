@@ -48,8 +48,8 @@
         <div class="signIn_box">
             <div class="signIn_wrap">
                 <div class="signIn_section">
-                    <input type="text" class="id_pw" name="u_id" placeholder="아이디" value="rlaehgus">
-                    <input type="password" class="id_pw" name="u_pw" placeholder="비밀번호" value="rlaehgus1">
+                    <input type="text" class="id_pw" name="u_id" placeholder="아이디" value="">
+                    <input type="password" class="id_pw" name="u_pw" placeholder="비밀번호" value="">
                     <div class="alertMsg">${param.msg}</div>
                     <label for="signIn_chk">
                         <input type="checkbox" id="signIn_chk" name="remember_userInfo">

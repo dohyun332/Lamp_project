@@ -1,0 +1,70 @@
+/* 에디터 초이스 메인 css */
+.maintitle {
+    margin: 20px 0 10px 0;
+}
+.subtitle {
+    margin: 20px 0 10px 0;
+}
+.editor_choice_main {
+    width: 100%;
+    border-collapse: collapse;
+    box-sizing: border-box;
+}
+.editor_choice_main_head {
+    border-bottom: 3px solid gray;
+    line-height: 40px;
+}
+.editor_choice_main_row {
+    border-bottom: 1px solid gainsboro;
+    box-sizing: border-box;
+}
+.music_info_td {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+.album_img {
+    width: 60px;
+    height: 60px;
+    margin: 3px 20px 3px 0;
+}
+.music_info {
+    padding: 9px 0;
+    box-sizing: border-box;
+}
+.title_box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.album_box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #969696;
+}
+.musician {
+    position: relative;
+    padding-right: 16px;
+    box-sizing: border-box;
+}
+.line {
+    width: 1px;
+    height: 70%;
+    border-right: 2px solid #e0e0e0;
+    box-sizing: border-box;
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+
+.editor_choice_icon {
+    text-align: center;
+}
+.editor_choice_icon > img {
+    cursor: pointer;
+}

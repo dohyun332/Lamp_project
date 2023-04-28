@@ -1,0 +1,288 @@
+/* 오늘의 추천음악(유튜브) */
+.container_main_youtube {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56%;
+    box-sizing: border-box; 
+}
+.main_youtube {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.youtube_info {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    position: absolute;
+    top: 13%;
+    left: 3%;
+}
+
+/* 음악차트 */
+    /* 차트섹션 */
+.chart_wrap {
+    height: 638px;
+}
+.chart_section {
+    width: calc((608 / 951) * 100%);
+    float: left;
+}
+.chart_title_box {
+    position: relative;
+    border-bottom: 1px solid;
+    box-sizing: border-box;
+}
+.chart_year {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+.chart {
+    width: 100%;
+    border-collapse: collapse;
+}
+.chart tr {
+    height: 50px;
+    border-bottom: 1px solid gainsboro;
+    box-sizing: border-box;
+}
+.rank {
+    text-align: center;
+}
+.album_info_td {
+    width: 100%;
+    height: 100%;
+}
+.album_info {
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.album_info > img {
+    width: 100px;
+    height: 100px;
+    display: none;
+}
+.album_txt {
+    width: 100%;
+    padding-right: 15px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.music{
+    font-weight: 700;
+    font-size: 14px;
+}
+.artist {
+    font-size: 14px;
+    color: #969696;
+}
+
+.chart_btn_box {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    justify-items: center;
+}
+.chart_btn_box > img {
+    cursor: pointer;
+}
+
+
+/* new섹션 */
+.new_section {
+    width: calc((306 / 951) * 100%);
+    float: right;
+}
+.new_slide_box {
+    width: 100%;
+    height: 309px;
+    position: relative;
+}
+.banner {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    display: none;
+}
+.new_left_btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.new_right_btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.indicator_box {
+    position: absolute;
+    bottom: 6px;
+    left: 16px;
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
+.indicator {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: gainsboro;
+    cursor:pointer;
+}
+.indicator_active {
+    background-color: white;
+}
+.play_btn_box {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+}
+.svg_active {
+    fill: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#btn_start {
+    display: none;
+}
+
+.recommand_album_box {
+    margin-top: 3px;
+}
+.recommand_album {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid gainsboro;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+.recommand_album > img {
+    width: 100px;
+    height: 100px;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+}
+.recommand_title {
+    margin-bottom: 5px;
+    color: #0095FF;
+    font-weight: 600;
+    font-size: 14px;
+}
+.recommand_artist {
+    color: #969696;
+}
+
+/* 에디터 추천 */
+.editor_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.editor_box {
+    width: calc((100% - (10px * 2)) / 3);
+    height: 380px;
+    border: 1px solid gainsboro;
+    box-sizing: border-box;
+}
+.editor_box > a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.editor_img_box {
+    height: 60%;
+    position: relative;
+    overflow: hidden;
+}
+
+.editor_cover {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    display: none;
+}
+.editor_img_box:hover .editor_cover,
+.editor_img_box:hover .editor_cover_content {
+    display: block;
+}
+.editor_cover_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 150;
+    display: none;
+}
+.editor_musicCnt {
+    color: white;
+}
+.editor_img_box > img {
+    box-shadow: 0px 0px 3px 1px gainsboro;
+}
+.main_img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+}
+.left_img {
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+}
+.right_img {
+    width: 110px;
+    height: 110px;
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+}
+.editor_txt_box {
+    padding: 15px 20px;
+}
+.editor_dj_box {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.editor_category {
+    color: #969696;
+    margin-bottom: 15px;
+}
+.editor_title {
+    margin-bottom: 25px;
+}
+.editor_dj_box > img {
+    width: 30px;
+}
